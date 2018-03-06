@@ -64,7 +64,7 @@ html, body {
     }
    
 
-    #enemySection {
+    .enemyRow {
         background-color: rgb(107, 32, 32);
         opacity: .4;
         margin: 10px;
@@ -87,9 +87,9 @@ html, body {
     }
     
    #fight-caption {
-    background-color: rgb(107, 32, 32);
-    opacity: .4;
-    margin: 10px;
+       background-color: rgb(107, 32, 32);
+        opacity: .4;
+        margin: 10px;
    }
 
 
@@ -104,5 +104,15 @@ footer {
 
 
 
-  
+/* styling for additional classes from jquery */
  
+.enemy-stats {
+    /* styling change for background or border when player selects their char */
+    border: black;
+}
+
+
+.your-stats {
+    /* styling change for when player selects their characters */
+    
+}
