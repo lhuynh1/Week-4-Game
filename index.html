@@ -7,6 +7,8 @@
 
     <!-- Bootstrap CDN v3.3.7 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <!-- style sheet -->
     <link rel="stylesheet" href="assets/css/style.css">
    
@@ -29,49 +31,60 @@
 <!-- div section containing row to hold characters -->
   
     <div id="charRow" class="row">
+        <div class="col-xs-12">
       <h2>Choose your character</h2>
-
-        <div id="potter" class="char-stats col-md-3" value="170">
-            <div class="thumbnail caption">
+        </div>
+    
+<!-- potter thumbnail -->
+<div class="row center-block">
+    <div class="col-sm-3">
+        <div id="potter" class="thumbnail col-sm-3 char-stats text-center" value="170">  
             POTTER
-            <img id="characters" src="assets/images/harry.png">
-            <p id="potter-hp">170</p>
-            </div>
+            <img src="assets/images/harry.jpg">
+            <p id="potter-hp"><b>HP: 170</b></p>   
         </div>
-
-        <div id="granger" class="char-stats col-md-3" value="160">
-            <div class="thumbnail caption">
-            GRANGER
-            <img id="characters" src="assets/images/hermione.png">
-            <p id="granger-hp">160</p>
-            
-            </div>
-        </div>
-        
-        <div id="voldemort" class="char-stats col-md-3" value="180">
-            <div class="thumbnail caption">
-            VOLDEMORT
-            <img id="characters" src="assets/images/voldemort.png">
-            <p id="voldemort-hp">180</p>
-            </div>
-        </div>
-
-        <div id="malfoy" class="char-stats col-md-3" value="150">
-            <div class="thumbnail caption">
-            MALFOY
-            <img id="characters" src="assets/images/draco.png"> 
-            <p id="malfoy-hp">150</p>
-            </div>
-        </div> 
-        
     </div>
+<!-- granger thumbnail -->
+    <div class="col-sm-3">
+        <div id="granger" class="thumbnail col-sm-3 char-stats text-center" value="160"> 
+            GRANGER
+            <img src="assets/images/hermione.jpg">
+            <p id="granger-hp"><b>HP: 160</b></p>   
+        </div>
+    </div>
+
+    <!-- voldemort thumbnail -->
+    <div class="col-sm-3">
+        <div id="voldemort" class="thumbnail col-sm-3 char-stats text-center" value="180">
+            VOLDEMORT
+            <img src="assets/images/voldemort.jpg">
+            <p id="voldemort-hp"><b>HP: 180</b></p>     
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div id="malfoy" class="thumbnail col-sm-3 char-stats text-center" value="150">
+            MALFOY
+            <img src="assets/images/draco.jpg"> 
+            <p id="malfoy-hp"><b>HP: 150</b></p>
+        </div> 
+    </div>
+</div> <!-- closing tag for row of character thumbnails -->
+</div>
 
     <!-- row for enemies -->
-    <div class="enemyRow row">    
+<div id="enemyRow" class="row">  
+  <div class="row">
+        <div class="col-xs-12">  
         <h2>Choose your enemy</h2>
-        <!-- div area to contain enemies after plaer has chosen character -->
+        </div>
+</div>
+
+        <!-- div area to contain enemies after player has chosen character -->
+    <div class="row">
         <div id="enemySection"></div>
     </div>
+</div>
 
 
 
@@ -80,32 +93,43 @@
 <div class="row">
 
 <!-- character chosen panel -->
-        <div class="panel col-md-5 col-sm-12">
-            <div id="char-panel" class="page-header">
+    <div class="panel col-md-5 col-xs-12">
+          
+            <div class="page-header text-center">
                 <h3>Your Character</h3>
-               
             </div>
-        
+           
+
+         <div class="row">
+            <div class="col-md-5 col-xs-12">
             <!-- empty div for chosen character -->
             <div id="chosenChar"></div>
+            </div>
         </div>
+    </div> 
 
+
+        <div class="col-md-2">
         <!-- attack button -->
-        <button type="button" class="col-md-2 btn btn-default">
+        <button type="button" id="attack" class="btn btn-default">
             Attack!
         </button>
+        </div>
 
         <!-- enemy chosen panel -->
         <div class="panel col-md-5 col-sm-12">
-            <div id="char-panel" class="page-header">
-                <h3>The Enemy</h3>
-                
+            <div class="page-header text-center">
+                <h3>The Enemy</h3>  
             </div>
 
+        <div class="row">
+            <div class="col-md 5 col-xs-12">
             <!-- empty div for enemy -->
             <div id="chosenEnemy"></div>
+            </div>
         </div>
-
+        </div>
+    
 
    </div> <!-- closing tag for 2nd row/container -->
 
