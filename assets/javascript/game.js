@@ -2,14 +2,14 @@
 var yourAttack = 0;
 var baseAttack;
 var potterBaseAttack = 12;
-var grangerBaseAttack = 6;
+var grangerBaseAttack = 8;
 var voldyBaseAttack = 10;
-var malfoyBaseAttack = 8;
+var malfoyBaseAttack = 9;
 
 // Global variables - enemy counter attacks
 var enemyAttack;
 var potterCountrAttack = 10;
-var grangerCountrAttack = 12;
+var grangerCountrAttack = 14;
 var voldyCountrAttack = 16;
 var malfoyCountrAttack = 18; 
 
@@ -43,14 +43,17 @@ $('.char-stats').on("click", function() {
         // charChosen moved to 'your character' panel section if true
         // added class to modify border color when char is moved to new div
         $(this).removeClass("enemy-stats").addClass("your-stats").appendTo("#chosenChar");
-    console.log(this.id);
-    // this line grabs the .char-stats class and checks for the ID and sets it to the yourChar var (took me 4 hrs and some TA help to figure this out :) )
+    
+        // console.log(this);
+        // this line grabs the .char-stats class and checks for the ID and sets it to the yourChar var
         yourChar = this.id;
+
+        yourHealth = $(this).attr('value');
 
 
         if(yourChar == 'potter') {
             baseAttack = potterBaseAttack;
-            console.log(potterBaseAttack);
+            // console.log(potterBaseAttack);
         }
         if(yourChar == 'granger') {
             baseAttack = grangerBaseAttack;
@@ -62,8 +65,8 @@ $('.char-stats').on("click", function() {
             baseAttack = malfoyBaseAttack;
         }
 
-        yourChar = this.id;
-        yourHealth = $(this).attr('value');
+        
+        
 
         charChosen = true;
     //    console.log(baseAttack);
@@ -92,14 +95,14 @@ $(this).appendTo("#chosenEnemy").removeClass("enemy-stats").addClass("chosenEnem
     }
 });
 
+   
 // Battle functions
 $('#attack').on("click", function(){
-    console.log(enemyHealth);
+    
     if(attackReady){
         // check health points status of your char & enemy
         if(yourHealth > 0 && enemyHealth > 0){
-            console.log(baseAttack);
-            console.log(yourAttack);
+            
             // this means: yourAttack = yourAttack + baseAttack
             // increments attack by whatever the base starts at
             yourAttack += baseAttack;
@@ -127,19 +130,19 @@ $('#attack').on("click", function(){
             // The enemy health points stats
             if(yourEnemy == 'potter'){
                 $('#potter-hp').html(enemyHealth);
-               
+                    nameOfEnemy = "POTTER";
             }
             else if(yourEnemy == 'granger'){
                 $('#granger-hp').html(enemyHealth);
-                
+                    nameOfEnemy = "GRANGER";
             }
             else if(yourEnemy == 'voldemort'){
                 $('#voldemort-hp').html(enemyHealth);
-                
+                    nameOfEnemy = "VOLDEMORT";
             }
             else if(yourEnemy == 'malfoy'){
                 $('#malfoy-hp').html(enemyHealth);
-                
+                    nameOfEnemy = "MALFOY";
             }
 
 
@@ -155,13 +158,84 @@ $('#attack').on("click", function(){
             }
             else if(yourChar == 'malfoy'){
                 $('#malfoy-hp').html(yourHealth);
+               
             }
+
+            // fight-captions
+            $('#fight-caption').text('You attacked ' + nameOfEnemy + ' for ' + yourAttack + ' health points.');
+            $('#fight-caption').append('<p>' + nameOfEnemy + ' has counter attacked you for ' + enemyAttack + ' health points.</p>' );
+        }
+
+        // Loser logic 
+        if(yourHealth <= 0){
+            // this removes the previous fight captions in order to display the loser msg
+            $('#fight-caption').remove();
+
+            $('#fight-caption').text('You have been defeated! AVADA-KEDAVRA');
+            // appending a restart button
+            $("#fight-caption").append("<button id='restart'>Lets try that again</button>");
+
+            // refresh/reload page for player to play again
+            $('#restart').on("click", function(){
+                window.location.reload(true);
+            });
+        }
+
+        // removing enemy after enemyhealth is equal to or less than 0
+        if(enemyHealth <= 0){
+
+            deathCount += 1;
+
+            $('#fight-caption').remove();
+
+            if(yourEnemy == 'potter'){
+                $('#potter').remove();
+                nameOfEnemy = "POTTER";
+            }
+            else if(yourEnemy == 'granger'){
+                $('#granger').remove();
+            }
+            else if(yourEnemy == 'voldemort'){
+                $('#voldemort').remove();
+            }
+            else if(yourEnemy == 'malfoy'){
+                $('#malfoy').remove();
+            }
+
+            // this condition is not working.. after defeating the enemy, enemy disapears but the appended comment does not come up...
+            if(deathCount < 3){
+                $('#fight-caption').append('<p>You have defeated ' + nameOfEnemy + ',' + ' please choose another enemy</p>');
+                
+                
+            }
+            else{
+                // $('#fight-caption').remove();
+
+                $('#fight-caption').text('Winner!! You have defeated everyone! Go grab a butter beer, you deserve it.');
+                $('#fight-caption').append("<button id='replay'>Play Again?</button>");
+
+                // refresh/reload page for player to play again
+                $('#restart').on("click", function(){
+                window.location.reload(true);
+                });
+
+                attackReady = false;
+                return;
+            }
+
+        
+            // TO DO: write some else if statements for the case when no character is selected and promp user to select an enemy
         }
     }
+
+
+});
+
+
+
+
 });
 
 
 
-
-});
 
