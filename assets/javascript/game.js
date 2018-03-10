@@ -206,6 +206,9 @@ $('#attack').on("click", function(){
             if(deathCount < 3){
                 $('#fight-caption').append('<p>You have defeated ' + nameOfEnemy + ',' + ' please choose another enemy</p>');
                 
+                attackReady = false;
+                enemyChosen = false;
+                return;
                 
             }
             else{
