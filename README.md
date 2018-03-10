@@ -2,7 +2,7 @@
 
 This week's assignment consists of creating a game utilizing jQuery. 
 
-Check it out here: 
+Check it out here: https://lhuynh1.github.io/Week-4-Game/
 
 Here's how the app works:
 
