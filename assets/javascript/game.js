@@ -170,7 +170,7 @@ $('#attack').on("click", function(){
         // Loser logic 
         if(yourHealth <= 0){
             // this removes the previous fight captions in order to display the loser msg
-            // $('#fight-caption').remove();
+            $('#fight-caption').remove();
             console.log(yourHealth);
 
             $('#fight-caption').text('You have been defeated! AVADA-KEDAVRA');
@@ -189,12 +189,12 @@ $('#attack').on("click", function(){
             // TODO
             $('#fight-caption').append('<p>You have defeated ' + nameOfEnemy + ',' + ' please choose another enemy</p>');
         }
-        // removing enemy after enemyhealth is equal to or less than 0
+        // removing enemy after enemyhealth is equal to or less than 0; incrementing deathcount
         if(enemyHealth <= 0){
 
             deathCount += 1;
 
-            $('#fight-caption').remove();
+            // $('#fight-caption').remove();
 
             if(yourEnemy == 'potter'){
                 $('#potter').remove();
@@ -204,14 +204,17 @@ $('#attack').on("click", function(){
             }
             else if(yourEnemy == 'granger'){
                 $('#granger').remove();
+                nameOfEnemy = "GRANGER";
                 displayMesssage();
             }
             else if(yourEnemy == 'voldemort'){
                 $('#voldemort').remove();
+                nameOfEnemy = "VOLDEMORT";
                 displayMesssage();
             }
             else if(yourEnemy == 'malfoy'){
                 $('#malfoy').remove();
+                nameOfEnemy = "MALFOY";
                 displayMesssage();
             }
 
