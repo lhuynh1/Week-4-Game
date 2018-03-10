@@ -97,6 +97,7 @@ $(this).appendTo("#chosenEnemy").removeClass("enemy-stats").addClass("chosenEnem
 
    
 // Battle functions
+
 $('#attack').on("click", function(){
     
     if(attackReady){
@@ -147,16 +148,16 @@ $('#attack').on("click", function(){
 
 
             // your character health point stats
-            if(yourChar == 'potter'){
+            if(yourChar === 'potter'){
                 $('#potter-hp').html(yourHealth);
             }
-            else if(yourChar == 'granger'){
+            else if(yourChar === 'granger'){
                 $('#granger-hp').html(yourHealth);
             }
-            else if(yourChar == 'voldemort'){
+            else if(yourChar === 'voldemort'){
                 $('#voldemort-hp').html(yourHealth);
             }
-            else if(yourChar == 'malfoy'){
+            else if(yourChar === 'malfoy'){
                 $('#malfoy-hp').html(yourHealth);
                
             }
@@ -169,7 +170,8 @@ $('#attack').on("click", function(){
         // Loser logic 
         if(yourHealth <= 0){
             // this removes the previous fight captions in order to display the loser msg
-            $('#fight-caption').remove();
+            // $('#fight-caption').remove();
+            console.log(yourHealth);
 
             $('#fight-caption').text('You have been defeated! AVADA-KEDAVRA');
             // appending a restart button
@@ -181,6 +183,12 @@ $('#attack').on("click", function(){
             });
         }
 
+
+// wrapping my choose another character message in a function to call later
+    var displayMesssage = function(){
+            // TODO
+            $('#fight-caption').append('<p>You have defeated ' + nameOfEnemy + ',' + ' please choose another enemy</p>');
+        }
         // removing enemy after enemyhealth is equal to or less than 0
         if(enemyHealth <= 0){
 
@@ -191,20 +199,26 @@ $('#attack').on("click", function(){
             if(yourEnemy == 'potter'){
                 $('#potter').remove();
                 nameOfEnemy = "POTTER";
+                displayMesssage();
+                
             }
             else if(yourEnemy == 'granger'){
                 $('#granger').remove();
+                displayMesssage();
             }
             else if(yourEnemy == 'voldemort'){
                 $('#voldemort').remove();
+                displayMesssage();
             }
             else if(yourEnemy == 'malfoy'){
                 $('#malfoy').remove();
+                displayMesssage();
             }
 
             // this condition is not working.. after defeating the enemy, enemy disapears but the appended comment does not come up...
             if(deathCount < 3){
-                $('#fight-caption').append('<p>You have defeated ' + nameOfEnemy + ',' + ' please choose another enemy</p>');
+                console.log(deathCount);
+                // $('#fight-caption').append('<p>You have defeated ' + nameOfEnemy + ',' + ' please choose another enemy</p>');
                 
                 attackReady = false;
                 enemyChosen = false;
