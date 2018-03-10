@@ -132,3 +132,14 @@ html, body {
     border-color: black;
     border-width: 10px;
 }
+
+#beer {
+    height: 100pt;
+    width: 100pt;
+}
+
+.replay {
+    background-color: white;
+    color: black;
+    text-align: center;
+}

@@ -218,10 +218,9 @@ $('#attack').on("click", function(){
                 displayMesssage();
             }
 
-            // this condition is not working.. after defeating the enemy, enemy disapears but the appended comment does not come up...
+          
             if(deathCount < 3){
-                console.log(deathCount);
-                // $('#fight-caption').append('<p>You have defeated ' + nameOfEnemy + ',' + ' please choose another enemy</p>');
+            
                 
                 attackReady = false;
                 enemyChosen = false;
@@ -232,10 +231,11 @@ $('#attack').on("click", function(){
                 // $('#fight-caption').remove();
 
                 $('#fight-caption').text('Winner!! You have defeated everyone! Go grab a butter beer, you deserve it.');
-                $('#fight-caption').append("<button id='replay'>Play Again?</button>");
+                $('#fight-caption').append("<br><img id='beer' src='assets/images/butterbeer.jpg'>")
+                $('#fight-caption').append("<br><button id='replay'>Play Again?</button>");
 
                 // refresh/reload page for player to play again
-                $('#restart').on("click", function(){
+                $('#replay').on("click", function(){
                 window.location.reload(true);
                 });
 
