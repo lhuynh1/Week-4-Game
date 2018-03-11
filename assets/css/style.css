@@ -44,8 +44,7 @@ html, body {
 
 /* styling for character row */
     #charRow {
-        background-color: rgb(107, 32, 32);
-        opacity: .4;
+        background-color: rgba(107, 32, 32, 0.322);
         margin: 10px;
         padding: 10px;
     }
@@ -66,19 +65,11 @@ html, body {
 
 
     #enemyRow {
-        background-color: rgb(107, 32, 32);
-        opacity: .4;
+        background-color: rgba(107, 32, 32, 0.322);
         margin: 10px;
         padding: 15px;
     }
 
-
-
-    #enemyRow {
-        background-color: rgb(107, 32, 32);
-        opacity: .4;
-        margin: 10px;
-    }
 
 
 
@@ -91,8 +82,7 @@ html, body {
   
     
    #fight-caption {
-       background-color: rgb(107, 32, 32);
-        opacity: .4;
+        background-color: rgba(107, 32, 32, 0.322);
         margin: 10px;
         color: white;
         text-align: center;
